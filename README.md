@@ -1,5 +1,5 @@
 # DMIT2015 Basic Starter Kit
 
-## Owner your name
+## Seonhye Yoon
 
 alter this statement to indicate the usage of this repository

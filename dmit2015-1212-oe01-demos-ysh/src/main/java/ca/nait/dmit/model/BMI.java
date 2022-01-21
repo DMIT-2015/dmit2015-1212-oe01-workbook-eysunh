@@ -18,7 +18,7 @@ public class BMI {
     }
 
     public String bmiCategory() {
-        
+
         return "";
     }
 }
