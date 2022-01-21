@@ -18,7 +18,19 @@ public class BMI {
     }
 
     public String bmiCategory() {
+        double bmiResult = bmi();
+        String toReturn = "";
 
-        return "";
+        if (bmiResult < 18.5){
+            toReturn = "underweight";
+        } else if (bmiResult >= 18.5 && bmiResult <= 24.9){
+            toReturn = "normal";
+        } else if (bmiResult >= 25 && bmiResult <= 29.9){
+            toReturn = "overweight";
+        } else if (bmiResult > 30) {
+            toReturn = "obese";
+        }
+
+        return toReturn;
     }
 }
