@@ -1,6 +1,7 @@
 package ca.nait.dmit.domain;
 
 public class BMI {
+
     private double weight;
     private double height;
 
