@@ -2,11 +2,13 @@ package ca.nait.dmit.domain;
 
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -54,7 +56,20 @@ class AlbertaCovid19CaseManagerTest {
 
     @Test
     void activeCaseCountByAhsZoneAndDateRange() {
-        assertEquals(15_652, caseManager.activeCaseCountByAhsZoneAndDateRange("Edmonton Zone", LocalDate.parse("2022-01-07"), LocalDate.parse("2022-01-13")));
         assertEquals(19_434, caseManager.activeCaseCountByAhsZoneAndDateRange("Calgary Zone", LocalDate.parse("2022-01-07"), LocalDate.parse("2022-01-13")));
+    }
+
+    @Test
+    @DisplayName("ShouldReturnFindById")
+
+    void shouldReturnFindById() {
+        Optional<AlbertaCovid19Case> optionalResult = caseManager.findById(1);
+        assertTrue(optionalResult.isPresent());
+        AlbertaCovid19Case result = optionalResult.get();
+        assertEquals(1, result.getId());
+        assertEquals("Edmonton Zone", result.getAhsZone());
+
+        Optional<AlbertaCovid19Case> invalidResult = caseManager.findById(-1);
+        assertTrue(invalidResult.isEmpty());
     }
 }
