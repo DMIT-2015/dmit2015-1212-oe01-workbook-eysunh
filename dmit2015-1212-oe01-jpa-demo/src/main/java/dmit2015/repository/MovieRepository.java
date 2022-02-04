@@ -1,19 +1,20 @@
-package ca.nait.dmit.dmit20151212oe01jpademo.repository;
+package dmit2015.repository;
 
 import java.util.List;
 import java.util.Optional;
 
-import ca.nait.dmit.dmit20151212oe01jpademo.entity.Movie;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.transaction.Transactional;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 
+import dmit2015.entity.Movie;
+
 @ApplicationScoped
 @Transactional
 public class MovieRepository {
 
-    @PersistenceContext(unitName = "h2database-jpa-pu")
+    @PersistenceContext(unitName = "hsqldatabase-jpa-pu")
     private EntityManager em;
 
     public void add(Movie newMovie) {

@@ -1,14 +1,18 @@
-package ca.nait.dmit.dmit20151212oe01jpademo.entity;
-
+package dmit2015.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+/**
+ * The persistent class for the movies database table.
+ */
 @Getter
 @Setter
 @NoArgsConstructor

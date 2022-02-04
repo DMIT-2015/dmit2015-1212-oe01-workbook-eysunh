@@ -1,4 +1,4 @@
-package ca.nait.dmit.dmit20151212oe01jpademo;
+package dmit2015.dmit20151212oe01jpademo;
 
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;

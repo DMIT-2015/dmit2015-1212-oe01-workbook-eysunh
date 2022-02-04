@@ -1,8 +1,8 @@
-package ca.nait.dmit.dmit20151212oe01jpademo.repository;
+package dmit2015.repository;
 
-import ca.nait.dmit.dmit20151212oe01jpademo.entity.Movie;
 import common.config.ApplicationConfig;
 
+import dmit2015.entity.Movie;
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.junit5.ArquillianExtension;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
@@ -55,7 +55,7 @@ public class MovieRepositoryIT {
     }
 
     @Order(2)
-    @Test
+    @Testg
     void shouldCreate() {
         currentMovie = new Movie();
         currentMovie.setGenre("Horror");
