@@ -19,7 +19,8 @@ public class EdmontonZoneCentreItemWriter extends AbstractItemWriter {
         for (Object currentItem : items) {
             EnforcementZoneCentre entity = (EnforcementZoneCentre) currentItem;
             _entityManager.persist(entity);
-
         }
+
     }
 }
+

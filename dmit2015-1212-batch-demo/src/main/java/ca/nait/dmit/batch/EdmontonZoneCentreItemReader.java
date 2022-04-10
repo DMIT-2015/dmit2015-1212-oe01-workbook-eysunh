@@ -23,18 +23,33 @@ public class EdmontonZoneCentreItemReader extends AbstractItemReader {
 
     private BufferedReader _reader;
 
+    private int _itemCount = 0;
+
+    @Inject
+    @BatchProperty(name = "max_results")
+    private int _maxResults;
+
     @Override
     public void open(Serializable checkpoint) throws Exception {
         super.open(checkpoint);
 
         _reader = new BufferedReader(new FileReader(Paths.get(_inputFile).toFile()));
+        _itemCount = 0;
+
+        // Skip the first line by reading it as it contains column headings instead of values
+        _reader.readLine();
     }
 
     @Override
     public Object readItem() throws Exception {
         try {
             String line = _reader.readLine();
-            return line;
+            _itemCount += 1;
+            if (_maxResults == 0 || _itemCount <= _maxResults) {
+                return line;
+            } else {
+                return null;
+            }
         } catch (Exception ex) {
             ex.printStackTrace();
         }
