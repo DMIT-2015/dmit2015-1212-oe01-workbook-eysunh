@@ -21,7 +21,7 @@ public class WeatherServiceController {
     @ConfigProperty(name="api.openweathermap.org.ApiKey")
     private String _weatherApiKey;
 
-    @GetterS
+    @Getter
     private OpenWeatherData weatherData;
 
     @PostConstruct
