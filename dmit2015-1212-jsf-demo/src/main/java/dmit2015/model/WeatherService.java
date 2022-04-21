@@ -34,8 +34,8 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
  *
  */
 
-//@RegisterRestClient(baseUri = "https://api.openweathermap.org/data/2.5/weather")
-@RegisterRestClient
+@RegisterRestClient(baseUri = "https://api.openweathermap.org/data/2.5/weather")
+//@RegisterRestClient
 public interface WeatherService {
 
     @GET

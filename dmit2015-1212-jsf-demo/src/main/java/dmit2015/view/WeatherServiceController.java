@@ -18,7 +18,10 @@ public class WeatherServiceController {
     private WeatherService _weatherService;
 
     @Inject
-    @ConfigProperty(name="api.openweathermap.org.ApiKey")
+//    @ConfigProperty(name="api.openweathermap.org.ApiKey")
+    @ConfigProperty(name="OPENWEATHERMAP_APIKEY")   // read value from Environment variable
+    // You can export a envirionment variable in linux
+    // export OPENWEATHERMAP_APIKEY=yourOwnApiKey
     private String _weatherApiKey;
 
     @Getter
@@ -27,7 +30,9 @@ public class WeatherServiceController {
     @PostConstruct
     void init() {
         try {
-            weatherData = _weatherService.findByCityName("Edmonton", _weatherApiKey, "metric");
+            weatherData = _weatherService.findByCityName(
+                    "Edmonton", _weatherApiKey, "metric");
+
         } catch (Exception ex) {
             ex.printStackTrace();
             Messages.addGlobalError("Error fetching weather data with exception {0}", ex.getMessage());

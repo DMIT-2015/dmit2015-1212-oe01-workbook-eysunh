@@ -101,6 +101,13 @@
             <artifactId>omnifaces</artifactId>
             <version>4.0-M13</version>
         </dependency>
+
+        <!-- Added for web security -->
+        <dependency>
+            <groupId>org.glassfish.soteria</groupId>
+            <artifactId>jakarta.security.enterprise</artifactId>
+            <version>2.0.1</version>
+        </dependency>
     </dependencies>
 
     <build>
@@ -125,7 +132,19 @@
                         <layer>management</layer>
                         <layer>microprofile-config</layer>
                         <layer>jsf</layer>
+
+                        <!-- Added for web security -->
+                        <layer>ee-security</layer>
                     </layers>
+                    <!-- Added for web security -->
+                    <cli-sessions>
+                        <cli-session>
+                            <script-files>
+                                <script>/home/user2015/jdk/server/wildfly-scripts/configure-elytron.cli</script>
+                            </script-files>
+                        </cli-session>
+                    </cli-sessions>
+
                     <excluded-layers>
                         <layer>deployment-scanner</layer>
                     </excluded-layers>
