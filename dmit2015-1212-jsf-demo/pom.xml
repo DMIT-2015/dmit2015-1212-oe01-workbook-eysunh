@@ -135,6 +135,7 @@
 
                         <!-- Added for web security -->
                         <layer>ee-security</layer>
+                        <layer>undertow-https</layer>
                     </layers>
                     <!-- Added for web security -->
                     <cli-sessions>
